@@ -1,0 +1,26 @@
+{
+    "name": "ampeco/omnipay-qorpay",
+    "description": "Omnipay plugin for: https://docs.qorcommerce.io/docs",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": { "Ampeco\\OmnipayQorPay\\": "src/" }
+    },
+    "authors": [
+        {
+            "name": "Alexander Alexiev",
+            "email": "alexander.alexiev@ampeco.com"
+        },
+        {
+            "name": "Petko Kostov",
+            "email": "petko.kostov@ampeco.global"
+        },
+        {
+            "name": "Marry Akifova",
+            "email": "merry.akifova@ampeco.global"
+        }
+    ],
+    "require": {
+        "omnipay/common": "^3"
+    }
+}
