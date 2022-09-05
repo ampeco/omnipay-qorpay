@@ -21,20 +21,12 @@ class GetTokenRequest extends AbstractRequest
         return [];
     }
 
-    public function getHeaders(): array
-    {
-        return array_merge(parent::getHeaders(), [
-            'Qor-App-Key' => 'T6554252567241061980',
-            'Qor-Client-Key' => '01dffeb784c64d098c8c691ea589eb82',
-        ]);
-    }
-
     /**
      * @inheritdoc
      */
     protected function createResponse($data, $statusCode)
     {
-        return $this->response = new Response($this, $data);
+        return $this->response = new Response($this, $data, $statusCode);
     }
 
     public function setProfileId($value)

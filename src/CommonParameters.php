@@ -6,22 +6,22 @@ trait CommonParameters
 {
     public function getAppId()
     {
-        return $this->getParameter('Qor-App-Key');
+        return $this->getParameter('app_id');
     }
 
     public function setAppId($value)
     {
-        return $this->setParameter('Qor-App-Key', $value);
+        return $this->setParameter('app_id', $value);
     }
 
     public function getClientId()
     {
-        return $this->getParameter('Qor-Client-Key');
+        return $this->getParameter('client_id');
     }
 
     public function setClientId($value)
     {
-        return $this->setParameter('Qor-Client-Key', $value);
+        return $this->setParameter('client_id', $value);
     }
 
     public function getMid()

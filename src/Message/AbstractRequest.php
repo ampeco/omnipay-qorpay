@@ -2,6 +2,7 @@
 namespace Ampeco\OmnipayQorPay\Message;
 
 use Omnipay\Common\Message\AbstractRequest as OmniPayAbstractRequest;
+use Ampeco\OmnipayQorPay\Gateway;
 
 abstract class AbstractRequest extends OmniPayAbstractRequest
 {
@@ -10,6 +11,19 @@ abstract class AbstractRequest extends OmniPayAbstractRequest
     const URL_PRODUCTION = "https://api.qorcommerce.io/v3/";
 
     const URL_TEST = "https://api-sandbox.qorcommerce.io/v3/";
+
+    protected ?Gateway $gateway;
+
+    public function setGateway(Gateway $gateway)
+    {
+        $this->gateway = $gateway;
+        return $this;
+    }
+
+    public function getGateway()
+    {
+        return $this->gateway;
+    }
 
     public function getBaseUrl()
     {
@@ -21,6 +35,8 @@ abstract class AbstractRequest extends OmniPayAbstractRequest
         return [
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
+            'Qor-App-Key' => $this->gateway->getAppId(),
+            'Qor-Client-Key' => $this->gateway->getClientId(),
         ];
     }
 

@@ -2,6 +2,7 @@
 
 namespace Ampeco\OmnipayQorPay;
 
+use Ampeco\OmnipayQorPay\Message\AbstractRequest;
 use Ampeco\OmnipayQorPay\Message\GetTokenRequest;
 use Omnipay\Common\AbstractGateway;
 
@@ -24,5 +25,12 @@ class Gateway extends AbstractGateway
     public function getTokenList(array $options = [])
     {
         return $this->createRequest(GetTokenRequest::class, $options);
+    }
+
+    protected function createRequest($class, array $parameters)
+    {
+        /** @var AbstractRequest */
+        $req = parent::createRequest($class, $parameters);
+        return $req->setGateway($this);
     }
 }
