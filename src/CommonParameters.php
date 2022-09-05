@@ -4,32 +4,32 @@ namespace Ampeco\OmnipayQorPay;
 
 trait CommonParameters
 {
-    public function getAppKey()
+    public function getAppId()
     {
         return $this->getParameter('Qor-App-Key');
     }
 
-    public function setAppKey($value)
+    public function setAppId($value)
     {
         return $this->setParameter('Qor-App-Key', $value);
     }
 
-    public function getClientKey()
+    public function getClientId()
     {
         return $this->getParameter('Qor-Client-Key');
     }
 
-    public function setClientKey($value)
+    public function setClientId($value)
     {
         return $this->setParameter('Qor-Client-Key', $value);
     }
 
-    public function getMidId()
+    public function getMid()
     {
         return $this->getParameter('mid');
     }
 
-    public function setMidId($value)
+    public function setMid($value)
     {
         return $this->setParameter('mid', $value);
     }
