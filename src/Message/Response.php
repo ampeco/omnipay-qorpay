@@ -26,10 +26,4 @@ class Response extends AbstractResponse implements ResponseInterface
     {
         return $this->statusCode < 400;
     }
-
-    public function getTokens(): array
-    {
-        return $this->data['tokens'] ?? [];
-    }
-
 }
