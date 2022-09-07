@@ -18,6 +18,7 @@ class Response extends AbstractResponse implements ResponseInterface
     public function __construct(RequestInterface $request, $data, int $statusCode)
     {
         parent::__construct($request, $data);
+        $this->data = json_decode($data, true);
         $this->statusCode = $statusCode;
     }
 
@@ -25,4 +26,10 @@ class Response extends AbstractResponse implements ResponseInterface
     {
         return $this->statusCode < 400;
     }
+
+    public function getTokens(): array
+    {
+        return $this->data['tokens'] ?? [];
+    }
+
 }

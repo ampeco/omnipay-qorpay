@@ -1,22 +1,24 @@
 <?php
+
 namespace Ampeco\OmnipayQorPay\Message;
 
-use Omnipay\Common\Message\AbstractRequest as OmniPayAbstractRequest;
 use Ampeco\OmnipayQorPay\Gateway;
+use Omnipay\Common\Message\AbstractRequest as OmniPayAbstractRequest;
 
 abstract class AbstractRequest extends OmniPayAbstractRequest
 {
     abstract public function getEndpoint();
 
-    const URL_PRODUCTION = "https://api.qorcommerce.io/v3/";
+    const URL_PRODUCTION = 'https://api.qorcommerce.io/v3/';
 
-    const URL_TEST = "https://api-sandbox.qorcommerce.io/v3/";
+    const URL_TEST = 'https://api-sandbox.qorcommerce.io/v3/';
 
     protected ?Gateway $gateway;
 
     public function setGateway(Gateway $gateway)
     {
         $this->gateway = $gateway;
+
         return $this;
     }
 
@@ -46,7 +48,7 @@ abstract class AbstractRequest extends OmniPayAbstractRequest
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function sendData($data)
     {
@@ -56,6 +58,7 @@ abstract class AbstractRequest extends OmniPayAbstractRequest
             $this->getHeaders(),
             json_encode($data),
         );
+
         return $this->createResponse(
             $httpResponse->getBody()->getContents(),
             $httpResponse->getStatusCode(),

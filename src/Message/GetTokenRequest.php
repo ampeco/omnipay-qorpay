@@ -26,7 +26,7 @@ class GetTokenRequest extends AbstractRequest
      */
     protected function createResponse($data, $statusCode)
     {
-        return $this->response = new Response($this, $data, $statusCode);
+        return $this->response = new GetTokenResponse($this, $data, $statusCode);
     }
 
     public function setProfileId($value)

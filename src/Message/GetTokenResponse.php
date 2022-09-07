@@ -1,9 +1,18 @@
 <?php
-namespace Ampeco\OmnipayQorPay;
+namespace Ampeco\OmnipayQorPay\Message;
 
-use Ampeco\OmnipayQorPay\Message\Response;
 
 class GetTokenResponse extends Response
 {
+    protected string $cardBrand;
 
+    public function setCardBrand($brand)
+    {
+        $this->cardBrand = $brand;
+    }
+
+    public function getCardBrand()
+    {
+        return $this->cardBrand;
+    }
 }
