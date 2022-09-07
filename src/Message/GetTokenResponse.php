@@ -13,7 +13,7 @@ class GetTokenResponse extends Response
         $this->cardBrand = $brand;
     }
 
-    public function getCardBrand()
+    public function getCardBrand(): string
     {
         return $this->cardBrand;
     }
