@@ -16,7 +16,7 @@ class PurchaseRequest extends AbstractRequest
                 'amount' => $this->getAmount(),
                 'creditcard' => $this->getToken(),
                 'orderid' => $this->getOrderid(),
-                'currency' => $this->getCurrency(),
+                'currency' => $this->getCurrency(), //It accepts only USD which is default value if 'currency' is missing. Probably not send it at all.
             ],
         ];
     }
