@@ -22,8 +22,13 @@ class Response extends AbstractResponse implements ResponseInterface
         $this->statusCode = $statusCode;
     }
 
+    public function getStatus(): ?string
+    {
+        return @$this->data['code'];
+    }
+
     public function isSuccessful(): bool
     {
-        return $this->statusCode < 400;
+        return $this->statusCode < 400 && $this->getStatus() == 'GW00';
     }
 }

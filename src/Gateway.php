@@ -5,6 +5,7 @@ namespace Ampeco\OmnipayQorPay;
 use Ampeco\OmnipayQorPay\Message\AbstractRequest;
 use Ampeco\OmnipayQorPay\Message\DeleteCardRequest;
 use Ampeco\OmnipayQorPay\Message\GetTokenRequest;
+use Ampeco\OmnipayQorPay\Message\PurchaseRequest;
 use Omnipay\Common\AbstractGateway;
 
 class Gateway extends AbstractGateway
@@ -39,5 +40,10 @@ class Gateway extends AbstractGateway
         $req = parent::createRequest($class, $parameters);
 
         return $req->setGateway($this);
+    }
+
+    public function purchase(array $parameters)
+    {
+        return $this->createRequest(PurchaseRequest::class, $parameters);
     }
 }
