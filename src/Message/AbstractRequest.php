@@ -52,11 +52,17 @@ abstract class AbstractRequest extends OmniPayAbstractRequest
      */
     public function sendData($data)
     {
+        if ($this->getHttpMethod() == 'DELETE') {
+            $params = http_build_query($data);
+        } else {
+            $params = json_encode($data);
+        }
+
         $httpResponse = $this->httpClient->request(
             $this->getHttpMethod(),
             $this->getBaseUrl() . ltrim($this->getEndpoint(), '/'),
             $this->getHeaders(),
-            json_encode($data),
+            $params,
         );
 
         return $this->createResponse(

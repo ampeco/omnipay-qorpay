@@ -3,6 +3,7 @@
 namespace Ampeco\OmnipayQorPay;
 
 use Ampeco\OmnipayQorPay\Message\AbstractRequest;
+use Ampeco\OmnipayQorPay\Message\DeleteCardRequest;
 use Ampeco\OmnipayQorPay\Message\GetTokenRequest;
 use Omnipay\Common\AbstractGateway;
 
@@ -22,6 +23,11 @@ class Gateway extends AbstractGateway
         return self::SECURE_FORMS_URL . '/vault/card/token?intent=create&' . http_build_query($options);
     }
 
+    public function deleteCard(array $parameters = [])
+    {
+        return $this->createRequest(DeleteCardRequest::class, $parameters);
+    }
+
     public function getTokenList(array $options = [])
     {
         return $this->createRequest(GetTokenRequest::class, $options);
@@ -31,6 +37,7 @@ class Gateway extends AbstractGateway
     {
         /** @var AbstractRequest */
         $req = parent::createRequest($class, $parameters);
+
         return $req->setGateway($this);
     }
 }
