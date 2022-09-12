@@ -2,9 +2,9 @@
 
 namespace Ampeco\OmnipayQorPay\Message;
 
-class AuthorizeResponse extends Response
+class PurchaseResponse extends Response
 {
-    public function getPaymentIntentReference(): string
+    public function getTransactionReference(): string
     {
         return @$this->data['transaction_id'];
     }

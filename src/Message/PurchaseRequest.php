@@ -23,7 +23,7 @@ class PurchaseRequest extends AbstractRequest
 
     protected function createResponse($data, $statusCode)
     {
-        return $this->response = new Response($this, $data, $statusCode);
+        return $this->response = new PurchaseResponse($this, $data, $statusCode);
     }
 
     public function setAmount($value)

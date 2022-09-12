@@ -8,7 +8,7 @@ use Ampeco\OmnipayQorPay\Message\CaptureRequest;
 use Ampeco\OmnipayQorPay\Message\DeleteCardRequest;
 use Ampeco\OmnipayQorPay\Message\GetTokenRequest;
 use Ampeco\OmnipayQorPay\Message\PurchaseRequest;
-use Illuminate\Support\Facades\Log;
+use Ampeco\OmnipayQorPay\Message\VoidRequest;
 use Omnipay\Common\AbstractGateway;
 
 class Gateway extends AbstractGateway
@@ -47,19 +47,21 @@ class Gateway extends AbstractGateway
 
     public function purchase(array $parameters)
     {
-        Log::debug("==========================Purchase==================");
         return $this->createRequest(PurchaseRequest::class, $parameters);
     }
 
     public function authorize(array $parameters)
     {
-        Log::debug("==========================Authorize==================");
         return $this->createRequest(AuthorizeRequest::class, $parameters);
     }
 
     public function capture(array $parameters)
     {
-        Log::debug("==========================capture==================");
         return $this->createRequest(CaptureRequest::class, $parameters);
+    }
+
+    public function void(array $parameters)
+    {
+        return $this->createRequest(VoidRequest::class, $parameters);
     }
 }

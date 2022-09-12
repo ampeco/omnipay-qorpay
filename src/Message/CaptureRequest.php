@@ -2,8 +2,6 @@
 
 namespace Ampeco\OmnipayQorPay\Message;
 
-use Illuminate\Support\Facades\Log;
-
 class CaptureRequest extends AbstractRequest
 {
     public function getEndpoint()
@@ -13,8 +11,6 @@ class CaptureRequest extends AbstractRequest
 
     public function getData()
     {
-        $t = 2;
-        Log::debug("====Mid=" . $this->getMid());
         return [
             'transaction_data' => [
                 'mid' => $this->getMid(),
