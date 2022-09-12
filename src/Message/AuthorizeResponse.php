@@ -2,13 +2,10 @@
 
 namespace Ampeco\OmnipayQorPay\Message;
 
-use Illuminate\Support\Facades\Log;
-
 class AuthorizeResponse extends Response
 {
-    public function getTransactionReference(): array
+    public function getPaymentIntentReference(): string
     {
-        Log::info("========================transaction_id=" . $this->data['transaction_id']);
         return $this->data['transaction_id'] ?? 'test';
     }
 }
