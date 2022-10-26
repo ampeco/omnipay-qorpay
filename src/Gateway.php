@@ -24,7 +24,9 @@ class Gateway extends AbstractGateway
 
     public function createCard(array $options = []): string
     {
-        return self::SECURE_FORMS_URL . '/vault/card/token?intent=create&' . http_build_query($options);
+        return self::SECURE_FORMS_URL
+            . '/vault/card/token?intent=create&cvv_field=true&button_text=Save%20Payment%20Method&textfield_type=filled&'
+            . http_build_query($options);
     }
 
     public function deleteCard(array $parameters = [])
