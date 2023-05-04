@@ -8,6 +8,8 @@ class GetTokenResponse extends Response
 
     protected string $requestId;
 
+    protected int $userId;
+
     public function setCardBrand($brand)
     {
         $this->cardBrand = $brand;
@@ -31,5 +33,15 @@ class GetTokenResponse extends Response
     public function getTokens(): array
     {
         return $this->data['tokens'] ?? [];
+    }
+
+    public function getUserId(): int
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(int $userId): void
+    {
+        $this->userId = $userId;
     }
 }
